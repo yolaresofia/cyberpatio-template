@@ -1,30 +1,30 @@
 // Numeric Operators
 
-console.log("1+1: ", 1 + 1);
-console.log("3-2: ", 3 - 2);
-console.log("6*2: ", 6 * 2);
-console.log("8/2: ", 8 / 2);
+// console.log("1+1= ", 1 + 1);
+// console.log("3-2= ", 3 - 2);
+// console.log("6*2= ", 6 * 2);
+// console.log("8/2= ", 8 / 2);
 
 // // Advanced Operators
 
 // console.log("2**3: ", 2 ** 3);
-// console.log("4%2: ", 4 % 2);
+// console.log("7%2: ", 7 % 2);
 
 // // Assignment Operators
 
-// const myAge = 32;
-// myAge += 1;
+// let myAge = 32;
+// myAge += 10;
 // console.log(myAge);
 
 // let firstName = "Ana";
-// console.log(`Hello there, ${firstName}!`);
+// console.log("Hello there, "+ firstName );
 // // ==> Hello there, Ana!
 // console.log(`${firstName} walks every day at least ${1+2} km `);
-// // ==> Ana walks every day at least 3km
+// ==> Ana walks every day at least 3km
 
 // String length
 
-// const firstName = "Ana";
+// const firstName = "444";
 // console.log("firstName length is: ", firstName.length);// <== 3
 
 // Accessing characters
@@ -37,11 +37,13 @@ console.log("8/2: ", 8 / 2);
 // console.log(greeting.charAt(5)); // <== " "
 // console.log(greeting.charAt(11)); // <== !
 // console.log(greeting.charAt(12)); // <== "" as an empty string
+// const greetingAna = greeting + ' ' + 'Ana';
+// console.log(greetingAna[2]);
 
 // Finding a substring
 
-// const message = "Don't be sad, be happy!";
-// console.log(message.indexOf("Don't"));// <== 0
+const message = "Don't be sad, be happy!";
+console.log(message.indexOf("'t be sad, be"));// <== 0
 // console.log(message.indexOf("t"));// <== 4
 // console.log(message.indexOf("Be"));// <== -1 (capitalized Be ≠ lowercased be)
 // console.log(message.indexOf("py"));// 20
