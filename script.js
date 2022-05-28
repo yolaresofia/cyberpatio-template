@@ -1,73 +1,3 @@
-// Numeric Operators
-
-console.log("1+1: ", 1 + 1);
-console.log("3-2: ", 3 - 2);
-console.log("6*2: ", 6 * 2);
-console.log("8/2: ", 8 / 2);
-
-// // Advanced Operators
-//test
-// console.log("2**3: ", 2 ** 3);
-// console.log("4%2: ", 4 % 2);
-
-// // Assignment Operators
-
-// const myAge = 32;
-// myAge += 1;
-// console.log(myAge);
-
-// let firstName = "Ana";
-// console.log(`Hello there, ${firstName}!`);
-// // ==> Hello there, Ana!
-// console.log(`${firstName} walks every day at least ${1+2} km `);
-// // ==> Ana walks every day at least 3km
-
-// String length
-
-// const firstName = "Ana";
-// console.log("firstName length is: ", firstName.length);// <== 3
-
-// Accessing characters
-
-// const greeting = "Hello there!";
-// console.log(`"${greeting}" is a string and it's length is ${greeting.length}.`);
-// // "Hello there!" is a string and it's length is 12.
-// console.log(greeting.charAt(0)); // <== H
-// console.log(greeting.charAt(1)); // <== e
-// console.log(greeting.charAt(5)); // <== " "
-// console.log(greeting.charAt(11)); // <== !
-// console.log(greeting.charAt(12)); // <== "" as an empty string
-
-// Finding a substring
-
-// const message = "Don't be sad, be happy!";
-// console.log(message.indexOf("Don't"));// <== 0
-// console.log(message.indexOf("t"));// <== 4
-// console.log(message.indexOf("Be"));// <== -1 (capitalized Be ≠ lowercased be)
-// console.log(message.indexOf("py"));// 20
-
-// // OR Operator (||)
-
-// true  || true// => true
-// true  || false// => true
-// false || true// => true
-// false || false// => false
-// false || (4 > 2)// true
-
-// // AND Operator (&&)
-
-// true  && true// => true
-// true  && false// => false
-// false && true// => false
-// false && false// => false
-// true  && (4 > 2)// => true
-
-// // NOT Operator (!)
-
-// !true// => false
-// !false// => true!
-// (4 > 2)// => false
-
 // simple if statement
 
 // const age = parseInt(prompt("Welcome to cyberpatio cinema. How old are you?"));
@@ -95,8 +25,6 @@ console.log("8/2: ", 8 / 2);
 //   }
 // }
 
-
-
 // while loop
 
 // let i = 0; while (i <= 100) {
@@ -115,4 +43,90 @@ console.log("8/2: ", 8 / 2);
 //   console.log(cyberpatio.charAt(index));
 // }
 
+////// Arrays
+
+const arrayNames = ["Pedro", "Jake", "Joan", "Mike"];
+console.log(arrayNames[0]); // <== Pedro
+
+// loging items & undefined
+
+// console.log(arrayNames[1]);// <== Jake
+// console.log(arrayNames[2]);// <== Joan
+// console.log(arrayNames[3]);// <== Mike
+// console.log(arrayNames[99]);// <== undefined
+
+// adding items to array
+
+// const arrayNames = ["Pedro", "Jake", "Joan"];
+// arrayNames.unshift("Rachel");
+// console.log(arrayNames[0]);// <== Rachel
+
+// removing items from array
+
+// const arrayNames = ["Pedro", "Jake", "Joan"];
+// arrayNames.splice(0,2);
+// arrayNames.splice(1,1);
+// arrayNames.splice(2,1);
+
+// iterating over arrays
+
+// const arrayNames = ["Pedro", "Jake", "Joan"];
+// for(let i=0; i < arrayNames.length; i++) {
+//   console.log(arrayNames[i]);
+// }
+
+// string split
+
+// const stringNames = "Pedro, Jake, Joan";
+// const arrayNames = stringNames.split(",");
+// console.log(arrayNames);
+
+/// Objects
+
+// let ourPets = {
+//   kitty: "Abya",
+//   dog: "Negrita",
+// };
+
+// console.log(ourPets);
+
+// accessing object properties
+
+// console.log(ourPets.kitty);
+// console.log(ourPets["kitty"]);
+
+// adding properties to object
+
+// ourPets.orangeCat = "Xixo";
+// console.log(ourPets);
+
+// bracket notation
+
+// ourPets["orangeCat"] = "Xixo";
+// console.log(ourPets);
+
+// updating properties
+
+// ourPets.kitty = "Abya Yala";
+// // or
+// ourPets["kitty"] = "Abya Yala";
+
+// deleting properties
+
+// delete ourPets.kitty;
+// // or
+// delete ourPets["kitty"];
+
+// object.keys()
+
+// Object.keys(ourPets);
+
+// for in loop
+
+// for (let key in ourPets) {
+//   console.log(key);
+// }
+
+// object.values()
+// Object.values(ourPets);
 
