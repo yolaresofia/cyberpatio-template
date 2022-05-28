@@ -61,6 +61,22 @@ console.log(arrayNames[0]); // <== Pedro
 // arrayNames.unshift("Rachel");
 // console.log(arrayNames[0]);// <== Rachel
 
+// push
+
+// const arrayNames = ["Pedro", "Jake", "Joan"];
+// arrayNames.push("Mike");
+// console.log(arrayNames[3]); // <== Mike
+
+// pop
+// const arrayNames = ["Pedro", "Jake", "Joan", "Mike"];
+// arrayNames.pop();
+// console.log(arrayNames[3]); // <== Mike
+
+// shift
+// const arrayNames = ["Pedro", "Jake", "Joan", "Mike"];
+// arrayNames.shift();
+// console.log(arrayNames[0]); // <== Jake
+
 // removing items from array
 
 // const arrayNames = ["Pedro", "Jake", "Joan"];
@@ -129,4 +145,3 @@ console.log(arrayNames[0]); // <== Pedro
 
 // object.values()
 // Object.values(ourPets);
-
