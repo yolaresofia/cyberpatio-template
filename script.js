@@ -24,6 +24,7 @@
 //     console.log("Number 1 is smaller than number 2.");
 //   }
 // }
+// test
 
 // while loop
 
