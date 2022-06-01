@@ -1,105 +1,3 @@
-// simple if statement
-
-// const age = parseInt(prompt("Welcome to cyberpatio cinema. How old are you?"));
-
-// if (age <= 16) {
-//   console.log ("You have a teenager discount.");
-// }
-//  else if (age >= 65) {
-//   console.log ("You have a senior citizen discount :)");
-// } else {
-//   console.log ("Sorry, you don't have any discount :(");
-// }
-
-// complex if statement
-
-// const number1 = parseInt (prompt ("First number:"));
-// const number2 = parseInt (prompt ("Second number:"));
-// if (number1 === number2) {
-//   console.log ("The numbers are equal.");
-// } else {
-//   if (number1 > number2) {
-//     console.log("Number 1 is bigger than number 2.");
-// } else {
-//     console.log("Number 1 is smaller than number 2.");
-//   }
-// }
-// test
-
-// test 22222
-
-// while loop
-
-// let i = 0; while (i <= 100) {
-//     console.log (i);
-//     i++; // this is the same as i = i + 1
-//   }
-
-// for loop
-
-// for (let index = 0; index < 10; index++) {
-//   console.log(index);
-// }
-
-// const cyberpatio = "Cyberpatio";
-// for (let index = 0; index < cyberpatio.length; index++) {
-//   console.log(cyberpatio.charAt(index));
-// }
-
-////// Arrays
-
-const arrayNames = ["Pedro", "Jake", "Joan", "Mike"];
-console.log(arrayNames[0]); // <== Pedro
-
-// loging items & undefined
-
-// console.log(arrayNames[1]);// <== Jake
-// console.log(arrayNames[2]);// <== Joan
-// console.log(arrayNames[3]);// <== Mike
-// console.log(arrayNames[99]);// <== undefined
-
-// adding items to array
-
-// const arrayNames = ["Pedro", "Jake", "Joan"];
-// arrayNames.unshift("Rachel");
-// console.log(arrayNames[0]);// <== Rachel
-
-// push
-
-// const arrayNames = ["Pedro", "Jake", "Joan"];
-// arrayNames.push("Mike");
-// console.log(arrayNames[3]); // <== Mike
-
-// pop
-// const arrayNames = ["Pedro", "Jake", "Joan", "Mike"];
-// arrayNames.pop();
-// console.log(arrayNames[3]); // <== Mike
-
-// shift
-// const arrayNames = ["Pedro", "Jake", "Joan", "Mike"];
-// arrayNames.shift();
-// console.log(arrayNames[0]); // <== Jake
-
-// removing items from array
-
-// const arrayNames = ["Pedro", "Jake", "Joan"];
-// arrayNames.splice(0,2);
-// arrayNames.splice(1,1);
-// arrayNames.splice(2,1);
-
-// iterating over arrays
-
-// const arrayNames = ["Pedro", "Jake", "Joan"];
-// for(let i=0; i < arrayNames.length; i++) {
-//   console.log(arrayNames[i]);
-// }
-
-// string split
-
-// const stringNames = "Pedro, Jake, Joan";
-// const arrayNames = stringNames.split(",");
-// console.log(arrayNames);
-
 /// Objects
 
 // let ourPets = {
@@ -148,3 +46,230 @@ console.log(arrayNames[0]); // <== Pedro
 
 // object.values()
 // Object.values(ourPets);
+
+///// functions
+
+// // Function Declaration
+// function sayHelloWorld() {
+//     const whatToSay = 'Hello, World!';
+//     console.log(whatToSay);
+//   }
+
+// function sayHelloMery() {
+//   console.log('Hello, Mery!');
+// }
+
+// function sayHelloJohn() {
+//   console.log('Hello, John!');
+// }
+
+// function sayHelloLucy() {
+//   console.log('Hello, Lucy!');
+// }
+
+// sayHelloMery();
+// // function will print: "Hello Mery!"
+// sayHelloJohn();
+// // function will print: "Hello John!"
+// sayHelloLucy();
+// // function will print: "Hello Lucy!"
+
+// function sayHello(name) {
+//     console.log(`Hello ${name}!`);
+//   }
+
+//   sayHello('Mery');
+//   // name = Mery
+//   // function will alert: "Hello Mery!"
+
+//   sayHello('John');
+//   // name = John
+//   // function will alert: "Hello John!"
+
+//   sayHello('Lucy');
+//   // name = Lucy
+//   // function will alert: "Hello Lucy!"
+
+// function sayHello(name) {
+//     console.log(`Hello ${name}!`);
+//   }
+
+//   sayHello('Mery');
+//   // name = Mery
+//   // function will alert: "Hello Mery!"
+
+//   sayHello('John');
+//   // name = John
+//   // function will alert: "Hello John!"
+
+//   sayHello('Lucy');
+//   // name = Lucy
+//   // function will alert: "Hello Lucy!"
+
+// function sayHelloManyTimes(name, howManyTimes) {
+//     for (let i=0; i < howManyTimes; i++) {
+//       console.log(`Hello ${name}!`);
+//     }
+//   }
+
+//   sayHelloManyTimes('Michael', 2);
+//   // => Hello Michael!
+//   // => Hello Michael!
+
+//   sayHelloManyTimes(3, 'ERROR');
+//   // Will this work?
+
+//   sayHelloManyTimes(2);
+//   // Will this work?
+
+//   sayHelloManyTimes('cyberBrain');
+//   // Will this work?
+
+// calback function
+
+// function eatDinner(){
+//     console.log("Eating the dinner ");
+//   }
+
+//   function eatDessert(){
+//     console.log("Eating the dessert ");
+//   }
+
+//   eatDinner();
+//   // <== Eating the dinner
+
+//   eatDessert();
+//   // <== Eating the dessert
+
+//
+// function eatDinner(){
+//     setTimeout(function(){
+//       console.log("Eating the dinner ");
+//     }, 1000)
+//   }
+
+//   function eatDessert(){
+//     console.log("Eating the dessert ");
+//   }
+
+//   eatDinner();
+//   eatDessert();
+
+//   // the console:
+//   // Eating the dessert
+//   // Eating the dinner
+
+// function eatDinner(callback){
+//     console.log("Eating the dinner ");
+//     callback();
+//   }
+
+//   function eatDessert(){
+//     console.log("Eating the dessert ");
+//   }
+
+//   eatDinner(eatDessert);
+//   // <== notice that there's NO () when passing a function as argument here
+//   // Eating the dinner
+//   // Eating the dessert
+
+// random example
+
+// const zeroToOne = Math.random();// Random integer number [0,1]
+
+// // Returns a random number between min (inclusive) and max (exclusive)
+
+// function getRandomArbitrary(min, max) {
+//   return Math.random() * (max - min) + min;
+// }
+
+// gradeTheStudent; // returns a random grade
+
+// function gradeTheStudent () {
+//     const grades = ['Master', 'Good', 'Acceptable', 'Average', 'Poor', 'Fail'];
+
+//     let randomNumber = Math.random();// Random decimal [0.0 - 1.0)
+//     randomNumber = randomNumber * grades.length;// Random decimal [0.0 - 6.0)
+//       randomNumber = Math.floor(randomNumber);// Random integer [0   - 5]
+
+//     return grades[randomNumber];
+//   }
+
+//   const myGrade = gradeTheStudent();
+//   console.log(myGrade);
+
+// anon function
+
+//   setTimeout(function(){
+//     console.log("This is just an example of anonymous function since this function really doesn't have a name.")
+// }, 1000);
+
+// function someFunctionName(){
+//     console.log("This is just an example of anonymous function since this function really doesn't have a name.")
+// }
+// setTimeout(someFunctionName, 1000);
+
+// function SayHello() {
+//   let firstName = "Ana"; // <== local variable
+//   console.log(`Hello ${firstName}!`);
+// }
+// sayHello(); // <== Hello Ana!
+// console.log(firstName); // <== ReferenceError: firstName is not defined
+
+// Global scope
+
+// const firstName = "Ana"; // <== global variable
+// function sayHello() {
+//   console.log(`Hello ${firstName}!`);
+// }
+// sayHello(); // <== Hello Ana!
+// console.log(firstName); // <== Ana
+
+// modifies the global variable
+// let firstName = "Ana";// <== global variable
+// function sayHello() {
+//   firstName = "Martina";  console.log(`Hello ${firstName}!`);}
+// console.log(`Before the function executes the first name is ${firstName}.`);
+// // <== Before the function executes the first name is Ana.
+// sayHello();// <== Hello Martina!
+// console.log(`After the function executes the first name is ${firstName}.`);
+// // <== After the function executes the first name is Martina.
+
+// // function expression:
+// let greeting = function(name) {
+//     console.log(`Hello, ${name}`);
+//   }
+//   // arrow function:
+//   let greeting = name => { console.log(`Hello, ${name}`);}
+
+// HIGH ORDER FUNCTIONS
+
+// const add = function (a) {
+//     return function (b) {
+//       return a + b;  }
+//   ;};
+//   const add2 = add(2);
+//   add2(3);// => 5
+
+// forEach
+
+// const numbers = [1, 2, 3, 4, 5];
+// numbers.forEach(function (number) {
+//   console.log(number);
+// });
+
+// map
+
+// const names = ["Ana", "Martina", "Lucy", "John", "Lee"];
+// const capitalized = names.map(function (name) {
+//   return name[0].toUpperCase() + name.slice(1);
+// });
+// console.log(capitalized);
+
+// filter
+
+// const words = ["hello", "cyberPatio", "yes", "frontEnd", "JS", "functions!", "now"];
+// const threeLetterWords = words.filter(function (word) {
+//   return word.length === 3;
+// });
+// console.log(threeLetterWords);
