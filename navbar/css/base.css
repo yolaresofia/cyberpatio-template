@@ -1,0 +1,341 @@
+/*::before and ::after pseudo-elements in CSS allows you to insert content onto a page without it needing to be in the HTML.
+While the end result is not actually in the DOM, it appears on the page as if it is*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*The :root selector allows you to target the highest-level “parent” element in the DOM, 
+or document tree. It is defined in the CSS Selectors Level 3 spec as a “structural pseudo-class”, 
+meaning it is used to style content based on its relationship with parent and sibling content.*/
+:root {
+  font-size: 15px;
+}
+
+/*These properties with double dash you see here are custom properties, their principal goal is to make your code DRY when doing
+custom CSS in stylesheets, they're also extremely specific and very versatile, here is some amazing documentation on how to use these
+https://css-tricks.com/a-complete-guide-to-custom-properties/*/
+section {
+  margin: 0;
+  --color-text: #111;
+  --color-bg: #f8ecde;
+  --color-link: #b19e7f;
+  --color-link-hover: #000;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: sofia-pro, sans-serif;
+}
+
+/*Steps function: steps() is a timing function that allows us to break an animation or transition into segments,
+rather than one continuous transition from one state to another. Here's some amazing docs for more info on steps
+function https://designmodo.com/steps-css-animations/*/
+main::before {
+  animation: grain 8s steps(10) infinite;
+  /* background-image: url(../img/noise.png); */
+  content: "";
+  height: 300%;
+  left: -50%;
+  opacity: 0.6;
+  position: fixed;
+  top: -100%;
+  width: 300%;
+}
+
+/* Grainy texture animation */
+/* 
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0); }
+  10% { transform:translate(-5%, -10%); }
+  20% { transform:translate(-15%, 5%); }
+  30% { transform:translate(7%, -25%); }
+  40% { transform:translate(-5%, 25%); }
+  50% { transform:translate(-15%, 10%); }
+  60% { transform:translate(15%, 0%); }
+  70% { transform:translate(0%, 15%); }
+  80% { transform:translate(3%, 35%); }
+  90% { transform:translate(-10%, 10%); }
+} */
+
+a {
+  text-decoration: none;
+  color: var(--color-link);
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-link-hover);
+  outline: none;
+}
+
+.frame {
+  padding: 3rem 5vw;
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+  line-height: 1;
+}
+
+.frame__title {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+
+.frame__links {
+  display: inline;
+}
+
+.frame__links a:not(:last-child),
+.frame__demos a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.frame__demos {
+  margin: 1rem 0;
+}
+
+.frame__demo--current,
+.frame__demo--current:hover {
+  color: var(--color-text);
+}
+
+.menu {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 10vh 0 25vh;
+  --marquee-width: 100vw;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+  --item-font-size: 10vw;
+  counter-reset: menu;
+}
+
+.menu__item {
+  cursor: default;
+  position: relative;
+  padding: 0 5vw;
+}
+
+.menu__item-link {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  -webkit-text-stroke: 1.5px #000;
+  text-stroke: 1.5px #000;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  color: transparent;
+  transition: opacity 0.4s;
+}
+
+.menu__item-link::before {
+  all: initial;
+  font-family: sofia-pro, sans-serif;
+  position: absolute;
+  bottom: 60%;
+  left: 0;
+  pointer-events: none;
+}
+
+.menu__item-link:hover {
+  transition-duration: 0.1s;
+  opacity: 0;
+}
+
+.menu__item-img {
+  pointer-events: none;
+  position: absolute;
+  height: 50vh;
+  max-height: 400px;
+  opacity: 0;
+  left: 100%;
+  top: 50%;
+  transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
+}
+
+.menu__item-link:hover + .menu__item-img {
+  opacity: 1;
+  transform: translate3d(calc(-100% - 6vw), -30%, 0) rotate3d(0, 0, 1, 4deg);
+  transition: all 0.4s;
+}
+
+/* Make sure 3 items are visible in the viewport by setting suitable font size. */
+
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--marquee-width);
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: color-burn;
+}
+
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: marquee 5s linear infinite;
+  animation-play-state: paused;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.menu__item-link:hover ~ .marquee .marquee__inner {
+  animation-play-state: running;
+  opacity: 1;
+  transition-duration: 0.4s;
+}
+
+.marquee span {
+  text-align: center;
+}
+
+.menu__item-link,
+.marquee span {
+  white-space: nowrap;
+  font-size: var(--item-font-size);
+  padding: 0 1vw;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.marquee span {
+  font-style: italic;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+
+@media screen and (min-width: 53em) {
+  .frame {
+    text-align: left;
+    display: grid;
+    align-content: space-between;
+    width: 100%;
+    padding: 2.5rem 6vw;
+    pointer-events: none;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto;
+  }
+
+  .frame__title-wrap {
+    display: flex;
+    align-items: start;
+  }
+
+  .frame__info {
+    margin: 0;
+  }
+
+  .frame__title {
+    margin: 0 1rem 0 0;
+  }
+
+  .frame__links {
+    padding: 0;
+    justify-self: end;
+  }
+
+  .frame a {
+    pointer-events: auto;
+  }
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 100%;
+  background: #eee;
+  transition: all 0.6s ease-in-out;
+}
+#active:checked ~ .wrapper {
+  right: 0;
+}
+.menu-btn {
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.menu-btn span,
+.menu-btn:before,
+.menu-btn:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 30%;
+  width: 40%;
+  border-bottom: 2px solid #000;
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.menu-btn:before {
+  transform: translateY(-8px);
+}
+.menu-btn:after {
+  transform: translateY(8px);
+}
+
+.close {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: background 0.6s;
+}
+
+/* closing animation */
+#active:checked + .menu-btn span {
+  transform: scaleX(0);
+}
+#active:checked + .menu-btn:before {
+  transform: rotate(45deg);
+  border-color: #fff;
+}
+#active:checked + .menu-btn:after {
+  transform: rotate(-45deg);
+  border-color: #fff;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+#active:checked ~ .wrapper ul li a {
+  opacity: 1;
+}
+
+#active:checked ~ .wrapper ul li a {
+  transform: none;
+  transition-timing-function: ease, cubic-bezier(0.1, 1.3, 0.3, 1); /* easeOutBack */
+  transition-delay: 0.6s;
+  transform: translateX(-100px);
+}

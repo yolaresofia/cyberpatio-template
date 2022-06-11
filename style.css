@@ -74,3 +74,6 @@ li {
 .flex {
     background-color: #fff;
 }
+.flip {
+    transform: rotateX(180deg);
+} 

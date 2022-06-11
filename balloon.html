@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        section {
+            height: 100vh;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+            transition: .8s all
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="style.css" />
+
+    <section>
+    </section>
+</body>
+<script>
+    const section = document.querySelector('section');
+    const returnRandomNumber = () => Math.floor(Math.random() * 400);
+    const arrayOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+    arrayOfNumbers.forEach(el => {
+        const randonNumber = returnRandomNumber();
+        section.insertAdjacentHTML('beforeend', `
+        <img 
+
+        style="width: ${randonNumber * .9}px;
+        top: ${randonNumber * 4}px;
+        left: ${randonNumber * 4}px;
+        transform:translate(${randonNumber})"
+
+        src="./images/cyberpatiologo.svg"
+        id="${el}"
+        onclick="deleteImage(${el})" 
+        alt="logo">
+    `)
+    })
+
+    const deleteImage = (index) => {
+        const img = document.getElementById(index);
+        img.remove();
+    }
+</script>
+
+</html>
