@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="shortcut icon" href="favicon.ico" />
   <title>INDEX</title>
 </head>
 
@@ -26,10 +26,9 @@
     <li class="hidden lg:inline"><a href="/balloon.html">BALLOON</a></li>
   </nav>
   <div class="flex flex-col h-full w-full justify-center">
-    <div class="w-full m-auto flex w-3/4 items-center justify-center space-x-4">
+    <div class="m-auto flex w-3/4 items-center justify-center space-x-4">
       <div class="text-2xl cursor-pointer" onclick="handleSlider(-1)">☜</div>
       <div class="m-auto">
-
         <img class="m-auto w-3/4" id="image" src="./images/image-1.jpg" alt="altText" />
         <h1 class="text-center p-4 text-2xl uppercase" id="caption"> Image one </h1>
       </div>
@@ -44,6 +43,7 @@
   </footer>
   <script src="script.js"></script>
   <script>
+
     const imgs = [{
       src: 'image-1.jpg',
       text: 'Image one'
@@ -57,25 +57,30 @@
       src: 'image-4.jpg',
       text: 'Image four'
     }];
-    const caption = document.getElementById('caption');
-    const img = document.getElementById('image');
-    let currentIndex = 0;
-    const handleSlider = (direction) => {
 
+    const img = document.getElementById('image');
+    const caption = document.getElementById('caption');
+
+    
+    let currentIndex = 0;
+
+    const handleSlider = (direction) => {
+    console.log( direction)
+      
+      const lastIndex = imgs.length - 1
       if (currentIndex === 0 && direction === -1) {
-        currentIndex = imgs.length - 1;
-      } else if (currentIndex === imgs.length - 1 && direction === 1) {
+        currentIndex = lastIndex;
+      } else if (currentIndex === lastIndex && direction === 1) {
         currentIndex = 0;
       }
       else {
         currentIndex += direction;
       }
+      console.log(currentIndex)
       const nextImg = imgs[currentIndex];
-      img.src = `./images/${nextImg.src}`;
+      img.src =  './images/' + nextImg.src;
       caption.innerText = nextImg.text;
-
-
-    }
+    };
   </script>
 </body>
 

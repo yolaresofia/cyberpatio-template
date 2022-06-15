@@ -16,18 +16,10 @@ meaning it is used to style content based on its relationship with parent and si
 }
 
 
-
-/*These properties with double dash you see here are custom properties, their principal goal is to make your code DRY when doing
-custom CSS in stylesheets, they're also extremely specific and very versatile, here is some amazing documentation on how to use these
-https://css-tricks.com/a-complete-guide-to-custom-properties/*/
 section {
   margin: 0;
-  --color-text: #111;
-  --color-bg: #f8ecde;
-  --color-link: #b19e7f;
-  --color-link-hover: #000;
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: #111;
+  background-color: #f8ecde;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: sofia-pro, sans-serif;
@@ -65,23 +57,18 @@ main::before {
 
 a {
   text-decoration: none;
-  color: var(--color-link);
+  color: #b19e7f;
   outline: none;
 }
 
 a:hover,
 a:focus {
-  color: var(--color-link-hover);
+  color: #111;
   outline: none;
 }
 
 .menu {
   padding: 10vh 0 25vh;
-  --marquee-width: 100vw;
-  --offset: 20vw;
-  --move-initial: calc(-25% + var(--offset));
-  --move-final: calc(-50% + var(--offset));
-  --item-font-size: 10vw;
   counter-reset: menu;
 }
 
@@ -143,7 +130,7 @@ Syntax: rotate3d(x, y, z, a) (a is angle of rotation)*/
   position: absolute;
   top: 0;
   left: 0;
-  width: var(--marquee-width);
+  width: 100vw;
   overflow: hidden;
   pointer-events: none;
   mix-blend-mode: color-burn;
@@ -154,7 +141,7 @@ Syntax: rotate3d(x, y, z, a) (a is angle of rotation)*/
   width: fit-content;
   display: flex;
   position: relative;
-  transform: translate3d(var(--move-initial), 0, 0);
+  transform: translate3d(calc(-25% + 20vw), 0, 0);
   animation: marquee 5s linear infinite;
   animation-play-state: paused;
   opacity: 0;
@@ -177,7 +164,7 @@ or in simple words selects all elements that are siblings of a specified element
 .menu__item-link,
 .marquee span {
   white-space: nowrap;
-  font-size: var(--item-font-size);
+  font-size: 10vw;
   padding: 0 1vw;
   font-weight: 900;
   line-height: 1.15;
@@ -189,11 +176,11 @@ or in simple words selects all elements that are siblings of a specified element
 
 @keyframes marquee {
   0% {
-    transform: translate3d(var(--move-initial), 0, 0);
+    transform: translate3d(calc(-25% + 20vw), 0, 0);
   }
 
   100% {
-    transform: translate3d(var(--move-final), 0, 0);
+    transform: translate3d(calc(-50% + 20vw), 0, 0);
   }
 }
 
